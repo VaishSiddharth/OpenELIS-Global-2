@@ -126,6 +126,21 @@ services:
     depends_on:
       - certs
 
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:25.0.1
+    ports:
+      - 8089:8080
+    command: start-dev
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HOSTNAME: http://localhost:8089
+      KC_HOSTNAME_STRICT: false
+      KC_HOSTNAME_STRICT_HTTPS: false
+    networks:
+      - default
+
 secrets:
   datasource.password:
     file: ./volume/properties/datasource.password
