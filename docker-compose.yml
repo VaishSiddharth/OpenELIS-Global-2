@@ -90,7 +90,6 @@ services:
         
         volumes:
             -  key_trust-store-volume:/etc/openelis-global
-            - ./volume/tomcat/hapi_server.xml:/opt/bitnami/tomcat/conf/server.xml
         secrets:
              - source: hapi_application.yaml 
 
